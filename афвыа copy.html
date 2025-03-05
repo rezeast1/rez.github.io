@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на юбилей</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #fbe9e7, #ffd5b8);
+            color: #5d4037;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Абстрактные элементы на фоне */
+        .background-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 112, 67, 0.2);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .shape.one { top: 10%; left: 5%; }
+        .shape.two { bottom: 15%; right: 10%; }
+        .shape.three { top: 50%; left: 40%; }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #FF7043;
+            font-size: 36px;
+            font-family: 'Pacifico', cursive;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #000000;
+            font-size: 20px;
+            font-family: 'Caveat', cursive;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .intro-text {
+            font-size: 24px;
+            font-weight: 500;
+            color: #5d4037;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            text-align: center;
+            background: #ffecd1;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .event-time {
+            background-color: #fff;
+            border: 2px solid #FF7043;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #5d4037;
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
+        }
+        .event-address {
+            background-color: #fff;
+            border: 2px solid #FF7043;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #5d4037;
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
+        }
+
+        .map-container {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid #FF7043;
+        }
+
+        .input-group {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .input-group p {
+            font-size: 22px;
+            font-weight: 600;
+            color: #FF7043;
+            margin-bottom: 10px;
+            font-family: 'Pacifico', cursive;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #FF7043;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 500;
+            outline: none;
+            background-color: #f8f3f1;
+        }
+
+        input:focus {
+            border-color: #FF7043;
+            box-shadow: 0 0 8px rgba(255, 112, 67, 0.6);
+        }
+
+        button {
+            background-color: #FF7043;
+            border: none;
+            padding: 12px 25px;
+            margin: 10px 15px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            color: white;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d84315;
+        }
+        .gradient-bg {
+    position: relative;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    padding: 50px;
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    font-size: var(--size, 20px);
+    transform: rotate(var(--rotation, 0deg));
+    color: gold;
+  }
+  .star:nth-child(1) { top: 10%; left: 5%; --size: 30px; --rotation: 15deg; }
+  .star:nth-child(2) { top: 20%; right: 10%; --size: 25px; --rotation: -10deg; }
+  .star:nth-child(3) { top: 40%; left: 15%; --size: 35px; --rotation: 20deg; }
+  .star:nth-child(4) { top: 50%; right: 20%; --size: 28px; --rotation: -15deg; }
+  .star:nth-child(5) { top: 70%; left: 25%; --size: 22px; --rotation: 10deg; }
+  .star:nth-child(6) { top: 80%; right: 30%; --size: 26px; --rotation: -5deg; }
+  .star:nth-child(7) { top: 70%; left: 15%; --size: 30px; --rotation: 15deg; }
+  .star:nth-child(8) { top: 70%; right: 10%; --size: 27px; --rotation: -12deg; }
+  .star:nth-child(9) { top: 20%; left: 25%; --size: 30px; --rotation: 15deg; }
+  .star:nth-child(10) { top: 10%; right: 20%; --size: 15px; --rotation: -10deg; }
+    </style>
+</head>
+<body>
+    <div class="background-stars">
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+        <div class="star">⭐</div>
+    </div>
+
+</div>
+    <div class="background-shapes">
+        <div class="shape one"></div>
+        <div class="shape two"></div>
+        <div class="shape three"></div>
+    </div>
+    <div class="container">
+        <h1>🎉 Приглашение на юбилей 50 лет 🎊</h1>
+        <h2>С большой радостью хочу пригласить вас на свой день рождения, который пройдет в узком кругу близких и родных мне людей! Вы желанные гости, и я буду очень рада видеть вас на своем празднике. С собой захватите хорошее настроение и положительные эмоции!</h2>
+        
+        <div class="event-details">
+            <div class="event-time">
+                <p><strong>📅 Дата и время:</strong> 18 июля в 17:00</p>
+            </div>
+            <div class="event-address">
+                <p><strong>📍 Место:</strong> Актобе, садоводческий коллектив 25-лет целины, 19</p>
+            </div>
+        </div>
+        <div class="map-container">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4343de30e3d8cd593eff2b4d6e1ea6a2895ca4d9536122fa2fa93d63167625fb&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+        <div class="input-group">
+            <p>📝 Ваше имя и фамилия:</p>
+            <input type="text" id="fullname" placeholder="Введите имя и фамилию">
+        </div>
+        <div class="input-group">
+            <p>🤔 Придёте ли вы?</p>
+            <button onclick="sendResponse('Да')">👍 Да</button>
+            <button onclick="sendResponse('Нет')">👎 Нет</button>
+        </div>
+        <script>
+            function sendResponse(answer) {
+                let fullname = document.getElementById("fullname").value.trim();
+                if (!fullname) {
+                    alert("Пожалуйста, введите имя и фамилию.");
+                    return;
+                }
+    
+                fetch('https://api.telegram.org/bot7723816438:AAH4jAPQAnkjZ7AuLUVx81G20TL7D-g6qC0/sendMessage', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        chat_id: 743066247,
+                        text: `Гость: ${fullname}\nОтвет: ${answer}`
+                    })
+                }).then(() => alert('Ваш ответ отправлен!'))
+                .catch(() => alert('Ошибка отправки. Попробуйте снова.'));
+            }
+        </script>
+    </div>
+</body>
+</html>
